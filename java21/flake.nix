@@ -9,9 +9,6 @@
   in {
     devShell.${system} = with pkgs; mkShell {
       buildInputs = [ jdk21_headless gradle maven ];
-      shellHook = ''
-        ${jdk21_headless}/bin/java -version
-      '';
     };
   };
 }

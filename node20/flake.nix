@@ -9,9 +9,6 @@
   in {
     devShell.${system} = with pkgs; mkShell {
       buildInputs = [ nodejs_20 ];
-      shellHook = ''
-        echo "node `${nodejs_20}/bin/node --version`"
-      '';
     };
   };
 }

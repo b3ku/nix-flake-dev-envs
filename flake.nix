@@ -1,7 +1,7 @@
 {
   description = "A collection of flake templates";
 
-  outputs = { self, ... }:  {
+  outputs = { self, nixpkgs, ... }@inputs:  {
     templates = {
      java21 = {
        path = ./java21;

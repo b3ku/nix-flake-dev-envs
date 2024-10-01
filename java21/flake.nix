@@ -1,14 +1,19 @@
 {
   description = "A flake with a jdk";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs";
-
-  outputs = { nixpkgs, ... }: let
-    system = "aarch64-darwin";
-    pkgs = import nixpkgs { inherit system; };
-  in {
-    devShell.${system} = with pkgs; mkShell {
-      buildInputs = [ jdk21_headless gradle maven ];
-    };
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs";
+    flake-utils.url = "github:numtide/flake-utils";
   };
+
+  outputs = { nixpkgs, flake-utils, ... }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+      in {
+        devShells.default = with pkgs; mkShell {
+          packages = [ jdk21_headless gradle maven ];
+        };
+      }
+    );
 }

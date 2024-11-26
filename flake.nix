@@ -3,6 +3,11 @@
 
   outputs = { self, ... }:  {
     templates = {
+     gng = {
+       path = ./gng;
+       description = "A gng-flake template";
+     };
+
      java21 = {
        path = ./java21;
        description = "A java-flake template";

@@ -3,6 +3,11 @@
 
   outputs = { self, ... }:  {
     templates = {
+     empty = {
+       path = ./empty;
+       description = "An empty flake template";
+     };
+
      gng = {
        path = ./gng;
        description = "A gng-flake template";

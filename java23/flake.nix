@@ -12,7 +12,7 @@
         pkgs = import nixpkgs { inherit system; };
       in {
         devShells.default = with pkgs; mkShell {
-          packages = [ jdk23_headless gradle maven ];
+          packages = [ temurin-bin-23 gradle maven ];
         };
       }
     );

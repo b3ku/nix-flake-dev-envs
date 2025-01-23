@@ -27,6 +27,11 @@
        path = ./node20;
        description = "A node-flake template";
      };
+
+     node22 = {
+       path = ./node22;
+       description = "A node-flake template";
+     };
     };
   };
 }
